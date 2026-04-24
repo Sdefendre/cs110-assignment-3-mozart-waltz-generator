@@ -1,0 +1,27 @@
+1. For each problem, describe your approach along with any issues you
+encountered and if/how you managed to solve those issues.
+
+Problem 1 (Generating a Waltz Sequence): I read the 11x16 minuet table and the
+6x16 trio table from standard input using nested loops. For the minuet, I
+simulated rolling two dice (using stdrandom.uniformInt) for each of the 16
+measures and used the sum minus 2 as the row index into the minuet table. For
+the trio, I simulated rolling one die for each of the 16 measures and used the
+die value minus 1 as the row index into the trio table. I wrote all 32 measure
+numbers to standard output.
+
+Problem 2 (Creating an Audio File from a Waltz Sequence): I read all integers
+from standard input and validated the input in three stages: first checking that
+there are exactly 32 measures, then checking that each of the first 16 (minuet)
+measures is in [1, 176], and finally checking that each of the last 16 (trio)
+measures is in [1, 96]. If any check fails, I print the appropriate error
+message and call sys.exit(). If validation passes, I concatenate the audio
+samples from the corresponding .wav files using stdaudio.read() and save the
+result using stdaudio.save().
+
+2. List any acknowledgements here.
+
+...
+
+3. List any other comments here.
+
+...
