@@ -1,25 +1,28 @@
-# CS110 Assignment 3: Mozart Waltz Generator
+# Mozart Waltz Generator
 
-## Course context
-- Course: CS110
-- Semester: Spring 2026
-- Purpose: archived coursework published as part of a portfolio / academic record
+Python programs that compose a random waltz with Mozart's *Musikalisches Würfelspiel* (musical dice game) and render it to an audio file.
 
-## Assignment overview
-Python coursework for Spring 2026 including a Mozart waltz generator plus several related programming exercises.
+## What it does
 
-## Files included
-- `birthday.py`
-- `distance.py`
-- `notes.txt`
-- `pascal.py`
-- `reverse.py`
-- `transpose.py`
-- `waltz_file.py`
-- `waltz_sequence.py`
+- **`waltz_sequence.py`** reads Mozart's 11×16 minuet table and 6×16 trio table. For each of the 16 minuet measures it rolls two dice, and for each of the 16 trio measures it rolls one die. It prints the 32 measure numbers that make up the waltz.
+- **`waltz_file.py`** reads a 32-measure sequence and validates it: exactly 32 measures, minuet measures in 1–176, trio measures in 1–96. It then joins the matching measure recordings into one `.wav` file.
 
-## How to run
-Run individual scripts with Python 3, for example `python3 waltz_sequence.py` or `python3 waltz_file.py`.
+```sh
+python3 waltz_sequence.py < mozart.txt | python3 waltz_file.py
+```
 
-## Notes
-This repository preserves the locally available assignment materials as they were found on disk, with obvious packaging junk like `__MACOSX` removed.
+The measure `.wav` files and the `mozart.txt` table came with the course materials and aren't included here.
+
+## Concepts
+
+2D arrays, simulating randomness, input validation, and audio sample processing.
+
+Also included are warm-up exercises: `birthday`, `distance`, `pascal`, `reverse` and `transpose`.
+
+## Running it
+
+These programs use the standard libraries from *Introduction to Programming in Python* (Sedgewick, Wayne & Dondero): `stdio`, `stdarray`, `stdrandom` and friends. Put those modules on your `PYTHONPATH`, then run the scripts with Python 3.
+
+## Course
+
+CS110 Introduction to Computing, UMass Boston, Spring 2026 (instructor: Swami Iyer). The instructor supplied the starter code and course libraries. My approach and notes for each problem are in [`notes.txt`](notes.txt).
